@@ -1,6 +1,7 @@
 package sList;
 
 public class LinkedStrList {
+	
 	private sNode firstNode;
 	private sNode lastNode;
 	private int Length;
@@ -112,6 +113,64 @@ public class LinkedStrList {
 			if(i==(Length-1))	System.out.println("}");
 			node = node.getNext();
 		}
+	}
+
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + Length;
+		result = prime * result
+				+ ((firstNode == null) ? 0 : firstNode.hashCode());
+		result = prime * result
+				+ ((lastNode == null) ? 0 : lastNode.hashCode());
+		return result;
+	}
+	
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		LinkedStrList other = (LinkedStrList) obj;
+		if (Length != other.Length)
+			return false;
+		if (firstNode == null) {
+			if (other.firstNode != null)
+				return false;
+		} else if (!firstNode.equals(other.firstNode))
+			return false;
+		if (lastNode == null) {
+			if (other.lastNode != null)
+				return false;
+		} else if (!lastNode.equals(other.lastNode))
+			return false;
+		
+		sNode node1 = this.firstNode;
+		sNode node2 = other.firstNode;
+		for(int i=0; i!=Length;++i){
+			if(node1.getData() == node2.getData()){
+				node2 = node2.getNext();
+				node1 = node1.getNext();
+			}
+			else {
+				System.out.println("elements ineuqel");
+				return false;
+			}
+		}
+		return true;
+	}
+
+	@Override
+	protected void finalize() throws Throwable {
+		System.out.println(this);
+		System.out.println("the finalize is called");
+		super.finalize();
 	}
 	
 }

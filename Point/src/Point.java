@@ -57,6 +57,8 @@ public class Point {
 		Phash.add(p1);
 		Phash.add(p2);
 //		This is a way to print out the item in hash
+		System.out.println(Phash);
+		System.out.println();
 		Iterator it = Phash.iterator();
 		while(it.hasNext()){
 			System.out.println(it.next());
@@ -65,6 +67,8 @@ public class Point {
 		System.out.println("This is another way to print out ");
 		Phash.forEach(System.out::println);
 		
+		Point nullp = null;
+		System.gc();
 	}
 
 	@Override
@@ -97,10 +101,9 @@ public class Point {
 		return "(" + x + "," + y + ")";
 	}
 //	I don't know what is this function doing.
-//	@Override
-//	protected void finalize() throws Throwable {
-//		// TODO Auto-generated method stub
-//		super.finalize();
-//	}
-	
+	@Override
+	protected void finalize() throws Throwable {
+		System.out.println("The point " + this + " is being deleted...");
+		super.finalize();
+	}
 }

@@ -4,8 +4,8 @@ public class test {
 
 	public static void main(String[] args) {
 		LinkedStrList myLst = new LinkedStrList("one");
-		LinkedStrList garb = new LinkedStrList("one");
-		garb = null;
+//		LinkedStrList garb = new LinkedStrList("one");
+//		garb = null;
 		System.gc();
 //		call the wield garbage collector
 		

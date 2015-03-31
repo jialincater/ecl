@@ -59,7 +59,7 @@ public class Point {
 //		This is a way to print out the item in hash
 		System.out.println(Phash);
 		System.out.println();
-		Iterator it = Phash.iterator();
+		Iterator<Point> it = Phash.iterator();
 		while(it.hasNext()){
 			System.out.println(it.next());
 		}
@@ -67,7 +67,7 @@ public class Point {
 		System.out.println("This is another way to print out ");
 		Phash.forEach(System.out::println);
 		
-		Point nullp = null;
+//		Point nullp = null;
 		System.gc();
 	}
 
